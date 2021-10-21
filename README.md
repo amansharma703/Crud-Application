@@ -23,7 +23,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 4. Import angulardb.sql in database crud_angular.
 5. Finally put command npm install to install all dependencies.
 6. Run the project ng serve --open
-7. App will automatically on `http://localhost:4200/` in Browser.
+7. App will automatically open on `http://localhost:4200/` in your default Browser.
 
 
 ## Further help
