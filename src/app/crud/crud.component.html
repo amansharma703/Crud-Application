@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="col-8 offset-2 mt-xl-4">
+        <h1 class="text-center">
+            Angular CRUD Application
+        </h1>
+        <form (ngSubmit)="doSubmitForm()">
+            <div class="mb-3">
+                <label class="form-label lead"><strong>
+                        Policy Number</strong></label>
+                <input type="text" name="num" [(ngModel)]="data.num" class="form-control form-control-lg" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label lead"><strong>
+                        Policy Amount</strong></label>
+                <input type="text" name="amt" [(ngModel)]="data.amt" class="form-control form-control-lg" required>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-success btn-lg col-12" value="{{btnName}}">
+            </div>
+        </form>
+        <table class="table table-striped table-bordered my-5">
+            <thead class="text-center">
+                <th>ID</th>
+                <th>Policy Number</th>
+                <th>Policy Amount</th>
+                <th>Operations</th>
+            </thead>
+            <tbody class="text-center">
+                <div *ngIf="checkResponse; else elseBlock" class="text-center">{{fetchdata["msg"]}}</div>
+                <ng-template #elseBlock>
+                    <tr *ngFor="let item of fetchdata">
+                        <td>{{item.id}}</td>
+                        <td>{{item.p_num}}</td>
+                        <td>{{item.p_amt}}</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary mx-2"
+                                (click)="updateData(item.id, item.p_num,item.p_amt)">UPDATE</button>
+                            <button type="button" class="btn btn-danger mx-2"
+                                (click)="deleteData(item.id)">DELETE</button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+            </tbody>
+        </table>
+    </div>
+</div>
